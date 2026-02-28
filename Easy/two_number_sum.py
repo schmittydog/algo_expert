@@ -2,8 +2,8 @@
 
 def two_number_sum(array, target_sum):
     '''
-        O(N) Time
-        O(N) Space
+        Time: N
+        Space: N
     '''
     numbers_visited = set()
     for number in array:
@@ -14,8 +14,8 @@ def two_number_sum(array, target_sum):
 
 def twoNumberSum(array, target_sum):
     ''' 
-        O(Nlog(N)) Time
-        O(1) Space
+        Time: NLog(N)
+        Space: 1
     '''
     array.sort()
     l, r = 0, len(array) - 1
@@ -31,8 +31,8 @@ def twoNumberSum(array, target_sum):
 
 def twoNumberSum(array, target_sum):
     ''' 
-        O(N**2) Time
-        O(1) Space
+        Time: N**2
+        Space: 1
     '''
     l = len(array)
     for i in range(l-1):
