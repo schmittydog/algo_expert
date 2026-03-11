@@ -29,3 +29,21 @@ def runLengthEncoding(string):
     return ''.join(encodes)
     
 
+def runLengthEncoding(string):
+    encoding = []
+    current_char = string[0]
+    count = 1
+    for i in range(1, len(string)):
+        char = string[i]
+        if char == current_char:
+            count += 1
+            if count == 10:
+                encoding.append('9'+char)
+                count = 1
+        else:
+            encoding.append(str(count) + current_char)
+            current_char = char
+            count = 1
+    encoding.append(str(count) + current_char)
+    return ''.join(encoding)
+

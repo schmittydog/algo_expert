@@ -3,6 +3,19 @@
 def firstNonRepeatingCharacter(string):
     '''
         Time: N
+        Space: 1
+    '''
+    char_count = 26 * [0]
+    for char in string:
+        char_count[ord(char)-97] += 1
+    for i, char in enumerate(string):
+        if char_count[ord(char)-97] == 1:
+            return i
+    return -1
+
+def firstNonRepeatingCharacter(string):
+    '''
+        Time: N
         Space: N
     '''
     char_count = {}
