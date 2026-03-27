@@ -11,9 +11,3 @@ def tag_generator(open, close, arr=[]):
     
 def generateDivTags(num):
     return [str for str in tag_generator(num, num)]
-
-
-
-
-for x in generateDivTags(3):
-    print(x)
