@@ -7,12 +7,9 @@ def minNumberOfJumps(array):
     forward = array[0]
     jumps = 1
     while forward < len(array) - 1:
+        nxt_idx = forward + 1
         for i in range(idx, forward + 1):
             forward = max(forward, i + array[i])
+        idx = nxt_idx
         jumps += 1
     return jumps
-            
-            
-        
-        
-
