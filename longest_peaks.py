@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 def longestPeak(array):
-    longest_peak, i = 0, 1
+    longest_peak = 0
     for i in range(1, len(array) - 1):
         if array[i] > array[i-1] and array[i] > array[i+1]:
             start, end = i - 1, i + 1
