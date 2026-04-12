@@ -2,28 +2,20 @@
 
 def get_islands(matrix):
     height, width = len(matrix), len(matrix[0])
-    islands = []
-    visited = set()
-    for i in range(height):
-        for j in range(width):
-            if (i, j) in visited or matrix[i][j] == 1:
-                continue
-            q = [(i, j)]
-            visited.add((i,j))
-            island = set()
-            while q:
-                h, w = q.pop()
-                island.add((h,w))
-                for dh, dw in [(1,0), (-1,0), (0,1), (0,-1)]:
-                    newh, neww = h + dh, w + dw
-                    if newh < 0 or neww < 0 or newh >= height or neww >= width:
-                        continue
-                    if (newh, neww) in visited or matrix[newh][neww] == 1:
-                        continue
-                    visited.add((newh, neww))
-                    q.append((newh, neww))
-            islands.append(island)
-    return islands
+    zeroes = set((h,w) for h in range(height) for w in range(width) if matrix[h][w] == 0)
+    island_sets = []
+    while zeroes:
+        island = set()
+        dfs = [zeroes.pop()]
+        while dfs:
+            h, w = dfs.pop()
+            island.add((h,w))
+            for dh, dw in [(0,1), (0,-1), (1,0), (-1,0)]:
+                if (h+dh, w+dw) in zeroes:
+                    dfs.append((h+dh, w+dw))
+                    zeroes.remove((h+dh, w+dw))
+        island_sets.append(island)
+    return island_sets
 
 def largestIsland(matrix):
     height, width = len(matrix), len(matrix[0])
